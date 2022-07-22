@@ -5,7 +5,9 @@ class Form extends React.Component {
 render () {
   return (
     <>
-      <p>Test</p>
+    <p className="text-red-400" >test 12</p>
+      {/* <input type="text">Test</input> */}
+      {/* <button type="submit">Submit</button> */}
     </>
   )
   }
