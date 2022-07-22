@@ -5,7 +5,10 @@ class Form extends React.Component {
 render () {
   return (
     <>
-      <p>Test</p>
+      <form onSubmit={this.props.onSubmitValue}>
+              <input onChange={this.props.addTask} placeholder={"Add your task"} />
+              <button type="submit" name="taskSubmit">Submit</button>
+      </form>
     </>
   )
   }
