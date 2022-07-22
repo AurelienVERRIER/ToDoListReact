@@ -7,7 +7,7 @@ render () {
     <>
     <p className="text-red-400" >test 12</p>
       {/* <input type="text">Test</input> */}
-      {/* <button type="submit">Submit</button> */}
+      <button className="rounded text-pink-500" type="submit">Submit</button>
     </>
   )
   }

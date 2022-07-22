@@ -1,6 +1,6 @@
 import React from 'react';
-// import Form from './components/Form';
-// import './App.css';
+import Form from './components/Form';
+import './App.css';
 
 class App extends React.Component {
 
@@ -8,6 +8,7 @@ class App extends React.Component {
     return (
       <>
         <p className='text-red-400'>Salut</p>
+        <Form />
       </>
     )
   }
