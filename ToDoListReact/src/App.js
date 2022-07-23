@@ -21,13 +21,11 @@ class App extends React.Component {
   }
 
   deleteTask=(i)=>{
-    const deletedTask = {
-      task: '',
-      status: ''
-    }
+    const clonedTask = this.state.tasks.filter((task, index) =>
+      index !== i)
+
     this.setState({
-      task: '',
-      status: ''
+      tasks: clonedTask,
     })
   }
   

@@ -12,6 +12,7 @@ render () {
   return (
     <>
     {console.log(this.props.tasks)}
+    {/* <p>{this.props.tasks}</p> */}
     <button onClick={this.props.deleteTask} >Delete</button>
     </>
   )
