@@ -3,17 +3,22 @@ import React from "react";
 class List extends React.Component {
   // construcor(){
   //   super()
-  //   this.state = {
-
+  //   this.state = { 
   //   }
   // }
 
 render () {
   return (
     <>
-    {console.log(this.props.tasks)}
-    {/* <p>{this.props.tasks}</p> */}
-    <button onClick={this.props.deleteTask} >Delete</button>
+    <h1>LIST</h1>
+    <ul>
+        {this.props.tasks.map((task,i)=>(
+          <>
+          <li key={i}>{task.task}</li>
+          <button onClick={()=>this.props.deleteTask(i)}>Delete</button>
+          </>
+        ))}
+    </ul>
     </>
   )
   }
