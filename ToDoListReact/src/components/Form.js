@@ -1,30 +1,29 @@
 import React from "react";
-import App from "../App";
 
 class Form extends React.Component {
   constructor(){
     super()
     this.state = {
-      task: ""
+      task: "",
     }
   }
   handleTaskDescriptionChange=(e)=>{
-    const clonedTask=[...this.state.task, e.target.value];
     this.setState({
-      task: clonedTask,
-    })
+       task: e.target.value 
+      })
   }
   handleSubmit=(e)=>{
     e.preventDefault();
+    this.props.addTask(this.state.task)
     this.setState({
-      task:this.state.task[this.state.task.length-1]
+      task: '' 
     })
   }
   render () {
   return (
     <>
       <form onSubmit={this.handleSubmit}>
-              <input onChange={this.handleTaskDescriptionChange} placeholder={"Add your task"} />
+              <input onChange={this.handleTaskDescriptionChange} value={this.state.task} placeholder={"Add your task"} />
               <button type="submit" name="taskSubmit">Submit</button>
       </form>
     </>

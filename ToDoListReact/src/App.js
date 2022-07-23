@@ -10,15 +10,18 @@ class App extends React.Component {
     }
   }
   addTask=(task)=>{
-    const clonedTask=[...this.state.tasks,this.state.task];
-    this.setState({
-      tasks:clonedTask,
+    const clonedTask = {
+      task: task,
+      status: 'To do'
+    }
+    this.setState({ 
+      tasks: [clonedTask, ...this.state.tasks] 
     })
   }
-  render () {
+  render (){
     return (
       <>
-        <Form addTask={this.addTask} tasks={this.state.tasks}/>
+        <Form addTask={this.addTask} />
       </>
     )
   }
