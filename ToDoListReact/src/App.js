@@ -36,8 +36,8 @@ class App extends Component {
         task.status === this.state.filter || this.state.filter === '')
     });
     return (
-      <div className='container my-5'>
-        <h1 className='mb-5'>Todolist React</h1>
+      <div className=''>
+        <h1 className=''>Todolist React</h1>
         <Form addTask={this.addTask} />
         <div>
         <h1>Filters</h1>
