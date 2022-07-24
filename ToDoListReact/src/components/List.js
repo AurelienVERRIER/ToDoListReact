@@ -1,61 +1,75 @@
-import React from "react";
-import '../App.css';
+import React, { Component } from 'react'
+import Edit from './Edit'
 
-class List extends React.Component {
-
-  constructor(){
-  super()
-  this.state={
-    edit:false,
+class List extends Component {
+  constructor() {
+    super()
+    this.state = {
+      editIndex: null,
+      editDescription: '',
+      editStatus: ''
+    }}
+  setEditIndex = (index) => {
+    this.setState({
+      editIndex: index,
+      editDescription: this.props.tasks[index].description,
+      editStatus: this.props.tasks[index].status
+    })
   }
+  handleTaskDescriptionChange = (e) => {
+    this.setState({ editDescription: e.target.value })
   }
-
-  render () {
-
+  handleStatusChange = (e) => {
+    this.setState({ editStatus: e.target.value })
+  }
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const { editIndex, editDescription, editStatus } = this.state
+    this.props.editTask(editIndex, editDescription, editStatus)
+    this.reset()
+  }
+  reset = () => {
+    this.setState({
+      editIndex: null,
+      editDescription: '',
+      editStatus: ''
+    })
+  }
+  render() {
     return (
-    <>
-      <h1 className="" >TASK LIST</h1>
-      <button>To Do</button>
-      
-      {!this.state.edit?
-      
-      (
-      <ul>
-        {this.props.tasks.map((task,i)=>(
-          <>
-          <li key={i}>{task.task} {task.status}</li>
-          <button onClick={()=>this.props.deleteTask(i)}>Delete</button>
-          <button onClick={()=>this.setState({edit:true})}>Edit</button>
-          </>
-        ))}
-      </ul>
-           ):(
-        console.log("a")
-       )}
-    </>
-  )
-  }
+      <div className=''>
+        <h1>List</h1>
+        <ul className=''>
+          {this.props.tasks.map((task, index) => (
+            <li key={index} className=''>
+              {this.state.editIndex !== index ? (
+                  <div className="">
+                    <div className="">
+                      <span>{task.description}</span>
+                  </div>
+                  <div className="">
+                    <span>{task.status}</span>
+                 </div>
+                 <div className="">
+                   <button className="" onClick={() => this.setEditIndex(index)}>Edit</button>
+                 </div>
+                 <div className="">
+                   <button className="" onClick={() => this.props.deleteTask(index)}>Delete</button>
+                 </div>
+                 </div>
+              ) : (
+                <Edit
+                  editDescription={this.state.editDescription}
+                  handleTaskDescriptionChange={this.handleTaskDescriptionChange}
+                  handleStatusChange={this.handleStatusChange}
+                  handleSubmit={this.handleSubmit}
+                  reset={this.reset}
+                />
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
 }
-
-export default List;
-
-// text-gray outline outline-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg rounded-rg text-sm px-4 py-1.5 dark:focus:ring-blue-800
-
-// Filtre rouge ToDo
-// className="text-red-500 rounded-lg rounded-rg outline outline-red-500 px-4 py-2"
-
-// Filtre jaune Doing
-// className="text-yellow-400 rounded-lg rounded-rg outline outline-yellow-400 px-4 py-2"
-
-// Filtre vert Done
-// className="text-green-600 rounded-lg rounded-rg outline outline-green-600 px-4 py-2"
-
-// Filtre noir All
-// text-black-100 rounded-lg rounded-rg outline outline-black-100 px-4 py-2"
-
-// bouton modifier
-// className="text-cyan-500 rounded-lg rounded-rg outline outline-cyan-500 px-4 py-2"
-
-// bouton supprimer
-// className="text-red-700 rounded-lg rounded-rg outline outline-red-907 px-4 py-2"
-
+export default List
