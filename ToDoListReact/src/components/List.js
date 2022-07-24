@@ -5,8 +5,8 @@ class List extends React.Component {
     super()
     this.state = { 
       editTask:'',
-      editstatus:'',
-      editindex:null
+      editStatus:'',
+      editIndex:null
     }
   }
 
@@ -16,14 +16,24 @@ class List extends React.Component {
     })
   }
 
-  // editTask=(i, task)=>{
-  //   const newTask = e.target.value  
-    
-  //   this.setState({
-  //       task: newTask         
-  //     })
-  //   }
+  handleEdit=(e)=>{
+    this.setState({
+      editTask: e.target.value
+    })
+  }
 
+  editTask=(i, task)=>{
+    const newTask = e.target.value  
+    
+    this.setState({
+      editTask: newTask         
+      })
+    }
+
+  editStatus=()=>{
+    const newStatus = 
+    editStatus: newStatus
+  }
 
 render () {
   return (
@@ -34,13 +44,21 @@ render () {
           <>
           <li key={i}>{task.task} {task.status}</li>
           <button onClick={()=>this.handleEdit(i, task)}>Edit</button>
-          {/* <input type="checkbox" name="to do" value="toDo" >To do</input>
-            <input type="checkbox" name="doing" value="doing" >Doing</input>
-            <input type="checkbox" name="done" value="toDo" >Done</input> */}
+
           <button onClick={()=>this.props.deleteTask(i)}>Delete</button>
+          
           </>
+        
         ))}
     </ul>
+    <article>
+      <input type="checkbox" name="to do" value="toDo" >To do</input>
+          
+      <input type="checkbox" name="doing" value="doing" >Doing</input>
+          
+      <input type="checkbox" name="done" value="toDo" >Done</input>
+    </article>
+    
     </>
   )
   }
