@@ -1,35 +1,30 @@
-import React from "react";
+import React, { Component } from 'react'
 
-class Form extends React.Component {
-  constructor(){
+class Form extends Component {
+  constructor() {
     super()
     this.state = {
-      task: '',
-    }
+      task: ''
+    }}
+  handleTaskDescriptionChange = (e) => {
+    this.setState({ task: e.target.value });
   }
-  handleTaskDescriptionChange=(e)=>{
-    this.setState({
-       task: e.target.value 
-      })
-  }
-  handleSubmit=(e)=>{
+  handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addTask(this.state.task)
-    this.setState({
-      task: '' 
-    })
+    this.props.addTask(this.state.task);
+    this.setState({ task: '' });
   }
-  render () {
-  return (
-    <>
-      <form onSubmit={this.handleSubmit}>
-              <input onChange={this.handleTaskDescriptionChange} value={this.state.task} placeholder={"Add your task"} />
-              <button type="submit" name="taskSubmit">Submit</button>
+  render() {
+    return (
+      <form className='' onSubmit={this.handleSubmit}>
+        <div className=''>
+          <input type='text' className='' placeholder='Task description' onChange={this.handleTaskDescriptionChange} value={this.state.task}/>
+        </div>
+        <div className=''>
+          <button type='submit' className=''>Submit</button>
+        </div>
       </form>
-    </>
-  )
-  }
+    )}
 }
 
-
-export default Form; 
+export default Form;
