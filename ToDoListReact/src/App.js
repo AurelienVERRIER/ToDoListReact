@@ -30,9 +30,9 @@ class App extends React.Component {
     render (){
       return (
         <main>
-          <h1 className='text-6xl text-center place-items-center m-10'>Todo list</h1>
+          <h1 className='text-4xl text-center place-items-center m-10'>Todo list</h1>
           <Form addTask={this.addTask} />
-          <List 
+          <List
             tasks={this.state.tasks}
             deleteTask={this.deleteTask}
           />
