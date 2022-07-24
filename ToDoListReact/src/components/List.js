@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Task from './Task'
 import Edit from './Edit'
 
 class List extends Component {
@@ -44,12 +43,20 @@ class List extends Component {
           {this.props.tasks.map((task, index) => (
             <li key={index} className=''>
               {this.state.editIndex !== index ? (
-                <Task
-                  task={task}
-                  index={index}
-                  deleteTask={this.props.deleteTask}
-                  setEditIndex={this.setEditIndex}
-                />
+                  <div className="">
+                    <div className="">
+                      <span>{task.description}</span>
+                  </div>
+                  <div className="">
+                    <span>{task.status}</span>
+                 </div>
+                 <div className="">
+                   <button className="" onClick={() => this.setEditIndex(index)}>Edit</button>
+                 </div>
+                 <div className="">
+                   <button className="" onClick={() => this.props.deleteTask(index)}>Delete</button>
+                 </div>
+                 </div>
               ) : (
                 <Edit
                   editDescription={this.state.editDescription}

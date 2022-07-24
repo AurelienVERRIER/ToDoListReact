@@ -11,7 +11,6 @@ class App extends Component {
       filter: ''
     }
   }
-
   addTask = (description) => {
     const clonedTasks = {
       description: description,
@@ -23,14 +22,12 @@ class App extends Component {
     const clonedTasks = this.state.tasks.filter((task, i) => i !== index);
     this.setState({ tasks: clonedTasks });
   }
-
   editTask = (index, description, status) => {
     const clonedTasks = [...this.state.tasks];
     clonedTasks[index].description = description;
     clonedTasks[index].status = status;
     this.setState({ tasks: clonedTasks });
   }
-
   setFilter = (status) => {
     this.setState({ filter: status });
   }
@@ -40,7 +37,6 @@ class App extends Component {
       return (
         task.status === this.state.filter || this.state.filter === '')
     });
-
     return (
       <div className='container my-5'>
         <h1 className='mb-5'>Todolist React</h1>
