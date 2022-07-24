@@ -37,15 +37,15 @@ class App extends Component {
     });
     return (
       <div className=''>
-        <h1 className=''>Todolist React</h1>
+        <h1 className='mx-3 my-3 text-xl'>To do list Managment in React</h1>
         <Form addTask={this.addTask} />
         <div>
-        <h1>Filters</h1>
+        <h1 className='mx-3 my-3 text-lg'>Filters</h1>
         <div className=''>
-          <button className='' onClick={() => this.Filter('')}>All</button>
-          <button className='' onClick={() => this.Filter('To do')}>To do</button>
-          <button className='' onClick={() => this.Filter('Doing')}>Doing</button>
-          <button className='' onClick={() => this.Filter('Done')}> Done</button>
+          <button className='text-black-100 rounded-lg rounded-rg border border-black-100 mx-1.5 px-4 py-2' onClick={() => this.Filter('')}>All</button>
+          <button className='text-red-500 rounded-lg rounded-rg border border-red-500 mx-1.5 px-4 py-2' onClick={() => this.Filter('To do')}>To do</button>
+          <button className='text-yellow-400 rounded-lg rounded-rg border border-yellow-400 mx-1.5 px-4 py-2' onClick={() => this.Filter('Doing')}>Doing</button>
+          <button className='text-green-600 rounded-lg rounded-rg border border-green-600 mx-1.5 px-4 py-2' onClick={() => this.Filter('Done')}> Done</button>
         </div>
        </div>
         <List

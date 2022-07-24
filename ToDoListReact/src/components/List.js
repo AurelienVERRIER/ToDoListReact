@@ -38,25 +38,20 @@ class List extends Component {
   render() {
     return (
       <div className=''>
-        <h1>List</h1>
+        <h1 className='mx-3 my-3 text-lg'>Task List</h1>
         <ul className=''>
           {this.props.tasks.map((task, index) => (
             <li key={index} className=''>
               {this.state.editIndex !== index ? (
-                  <div className="">
-                    <div className="">
-                      <span>{task.description}</span>
-                  </div>
-                  <div className="">
-                    <span>{task.status}</span>
-                 </div>
-                 <div className="">
-                   <button className="" onClick={() => this.setEditIndex(index)}>Edit</button>
-                 </div>
-                 <div className="">
-                   <button className="" onClick={() => this.props.deleteTask(index)}>Delete</button>
-                 </div>
-                 </div>
+                <>
+                <span className='mx-3 uppercase'>{task.description}</span>
+
+                <span className='mx-3 italic text-purple-500'>{task.status}</span>
+
+                <button className="text-cyan-500 rounded-lg rounded-rg border border-cyan-500 mx-1.5 my-1.5 px-1.5 py-1" onClick={() => this.setEditIndex(index)}>Edit</button>
+                 
+                <button className="text-red-700 rounded-lg rounded-rg border border-red-907 mx-1.5 my-1.5 px-1.5 py-1" onClick={() => this.props.deleteTask(index)}>Delete</button>
+                </>
               ) : (
                 <Edit
                   editDescription={this.state.editDescription}
