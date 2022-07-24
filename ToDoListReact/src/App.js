@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './components/Form';
+import List from './components/List';
 import './App.css';
 
 class App extends React.Component {
@@ -18,14 +19,26 @@ class App extends React.Component {
       tasks: [clonedTask, ...this.state.tasks] 
     })
   }
-  deleteTask=
-  render (){
-    return (
-      <>
-        <Form addTask={this.addTask} />
-      </>
-    )
+
+  deleteTask=(i)=>{
+    const clonedTask = this.state.tasks.filter((task, index) =>
+      index !== i)
+      this.setState({
+        tasks: clonedTask,
+      })
+    } 
+    render (){
+      return (
+        <main>
+          <h1 className='text-6xl text-center place-items-center m-10'>Todo list</h1>
+          <Form addTask={this.addTask} />
+          <List 
+            tasks={this.state.tasks}
+            deleteTask={this.deleteTask}
+          />
+        </main>
+      )
+    }
   }
-}
 
 export default App;
