@@ -16,13 +16,9 @@ class Form extends Component {
   }
   render() {
     return (
-      <form className='' onSubmit={this.handleSubmit}>
-        
-        <input type='text' className="ml-1.5 stext-gray outline outline-gray-200 focus:ring-4 focus:outline-none focus:ring-blue-200 font-medium rounded-lg rounded-rg text-sm px-4 py-1.5 dark:focus:ring-blue-800" placeholder='Task description' onChange={this.handleTaskDescriptionChange} value={this.state.task}/>
-        
-        
-        <button type='submit' className='text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg rounded-rg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>Submit</button>
-        
+      <form onSubmit={this.handleSubmit}>
+        <input type='text' className="w-96 px-5 h-8 font-semibold border border-slate-300 text-black rounded" placeholder='Task description' onChange={this.handleTaskDescriptionChange} value={this.state.task}/> 
+        <button type='submit' className='h-9 px-5 font-semibold rounded bg-blue-700 text-white hover:bg-white hover:text-black hover:border-2 hover:border-black ml-2'>Submit</button>     
       </form>
     )}
 }
