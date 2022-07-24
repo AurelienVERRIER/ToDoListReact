@@ -5,11 +5,7 @@ class Edit extends Component {
     return (
       <form className="" onSubmit={handleSubmit}>
         <div className="">
-          <input
-            type="text"
-            value={editDescription}
-            onChange={handleTaskDescriptionChange}
-          />
+          <input type="text" value={editDescription} onChange={handleTaskDescriptionChange}/>
         </div>
         <div className="">
           <select className="" onChange={handleStatusChange}>

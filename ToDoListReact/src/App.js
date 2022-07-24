@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Form from './components/Form'
 import List from './components/List'
-import Filters from './components/Filters'
 
 class App extends Component {
   constructor() {
@@ -28,10 +27,9 @@ class App extends Component {
     clonedTasks[index].status = status;
     this.setState({ tasks: clonedTasks });
   }
-  setFilter = (status) => {
+  Filter = (status) => {
     this.setState({ filter: status });
   }
-
   render() {
     const filteredTasks = this.state.tasks.filter(task => {
       return (
@@ -41,7 +39,15 @@ class App extends Component {
       <div className='container my-5'>
         <h1 className='mb-5'>Todolist React</h1>
         <Form addTask={this.addTask} />
-        <Filters setFilter={this.setFilter} />
+        <div>
+        <h1>Filters</h1>
+        <div className=''>
+          <button className='' onClick={() => this.Filter('')}>All</button>
+          <button className='' onClick={() => this.Filter('To do')}>To do</button>
+          <button className='' onClick={() => this.Filter('Doing')}>Doing</button>
+          <button className='' onClick={() => this.Filter('Done')}> Done</button>
+        </div>
+       </div>
         <List
           tasks={filteredTasks}
           deleteTask={this.deleteTask}
@@ -51,5 +57,4 @@ class App extends Component {
     )
   }
 }
-
 export default App;
