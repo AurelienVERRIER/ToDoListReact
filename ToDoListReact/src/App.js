@@ -26,15 +26,11 @@ class App extends React.Component {
       this.setState({
         tasks: clonedTask,
       })
-    }
-
-    
-
-    
+    } 
   render (){
     return (
       <main>
-        <h1 className='center'>Todo list</h1>
+        <h1 className='text-6xl text-center place-items-center m-10'>Todo list</h1>
         <Form addTask={this.addTask} />
         <List 
           tasks={this.state.tasks}
